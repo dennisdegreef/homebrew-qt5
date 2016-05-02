@@ -16,11 +16,11 @@ class Qt5 < Formula
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.4/5.4.2/single/qt-everywhere-opensource-src-5.4.2.tar.xz"
   sha256 "8c6d070613b721452f8cffdea6bddc82ce4f32f96703e3af02abb91a59f1ea25"
 
-  bottle do
-    sha256 "1d3aee1664b44e912ddd307fc7f1eff25e835452ce44705acaa4162f79006ef7" => :yosemite
-    sha256 "f32d4dde1b09d619e5046b9e5717ab48d7dc6b066b09bbde8d44f74b2ef040fb" => :mavericks
-    sha256 "855e075b522199c52876f44fe2d2a63e4c4b4f9bfd5c6edb0e3dc850fd02ef34" => :mountain_lion
-  end
+#  bottle do
+#    sha256 "1d3aee1664b44e912ddd307fc7f1eff25e835452ce44705acaa4162f79006ef7" => :yosemite
+#    sha256 "f32d4dde1b09d619e5046b9e5717ab48d7dc6b066b09bbde8d44f74b2ef040fb" => :mavericks
+#    sha256 "855e075b522199c52876f44fe2d2a63e4c4b4f9bfd5c6edb0e3dc850fd02ef34" => :mountain_lion
+#  end
 
   head "https://code.qt.io/qt/qt5.git", :branch => "5.4", :shallow => false
 
@@ -126,4 +126,30 @@ class Qt5 < Formula
     If this is unacceptable you should uninstall.
     EOS
   end
+
+  # QT Patches for owncloud
+  # https://github.com/owncloud/client/tree/2.1.1/admin/qt/patches
+
+  # Part of Qt v5.5.0 and later
+  patch do
+    url "https://raw.githubusercontent.com/owncloud/client/2.1.1/admin/qt/patches/0017-Win32-Re-init-system-proxy-if-internet-settings-chan.patch"
+    sha1 "df4d13decc54a2666c6cfd61fb0409728e7f4617"
+  end
+
+  # Part of Qt v5.5.1 and later
+  patch do
+    url "https://raw.githubusercontent.com/owncloud/client/2.1.1/admin/qt/patches/0007-X-Network-Fix-up-previous-corruption-patch.patch"
+    sha1 "53248a2b1fba01e1bb3c5bbc5540c53a3be07f81"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/owncloud/client/2.1.1/admin/qt/patches/0008-QNAM-Fix-reply-deadlocks-on-server-closing-connectio.patch"
+    sha1 "a3e6b50a82753ed40a232b5a13a7c5ecfa582b22"
+  end
+
+#  patch do
+#    url "https://github.com/owncloud/client/blob/60a51f808525d426126c54b2c6e1d5007b75c9fd/admin/qt/patches/0014-Fix-SNI-for-TlsV1_0OrLater-TlsV1_1OrLater-and-TlsV1_.patch"
+#    sha1 "18d82dc7308496973c153472fd151bf6d377f0b5"
+#  end
+
 end
