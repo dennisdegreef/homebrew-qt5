@@ -19,13 +19,13 @@ Task-number: QTBUG-29990
 Change-Id: Id25a51387bcd232c5f879cea0371038986d0e2de
 Reviewed-by: Oliver Wolff <oliver.wolff@theqtcompany.com>
 ---
- src/network/kernel/qnetworkproxy_win.cpp | 86 +++++++++++++++++++++++++++++++-
+ qtbase/src/network/kernel/qnetworkproxy_win.cpp | 86 +++++++++++++++++++++++++++++++-
  1 file changed, 84 insertions(+), 2 deletions(-)
 
-diff --git a/src/network/kernel/qnetworkproxy_win.cpp b/src/network/kernel/qnetworkproxy_win.cpp
+diff --git a/qtbase/src/network/kernel/qnetworkproxy_win.cpp b/qtbase/src/network/kernel/qnetworkproxy_win.cpp
 index da2c020..f7741ce 100644
---- a/src/network/kernel/qnetworkproxy_win.cpp
-+++ b/src/network/kernel/qnetworkproxy_win.cpp
+--- a/qtbase/src/network/kernel/qnetworkproxy_win.cpp
++++ b/qtbase/src/network/kernel/qnetworkproxy_win.cpp
 @@ -345,12 +345,66 @@ static QList<QNetworkProxy> parseServerList(const QNetworkProxyQuery &query, con
      return removeDuplicateProxies(result);
  }
