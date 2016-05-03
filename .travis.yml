@@ -11,4 +11,4 @@ before_install:
   - brew tap dennisdegreef/qt5
 
 script:
-  - brew install --verbose --version --debug dennisdegreef/qt5/qt5
+  - brew install --verbose --version dennisdegreef/qt5/qt5
