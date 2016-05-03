@@ -127,29 +127,34 @@ class Qt5 < Formula
     EOS
   end
 
+  patch do
+    url "https://gist.githubusercontent.com/dennisdegreef/8ba899e9adea893973caac697d7b649b/raw/795cd38253445e0957203df271e20366594616d4/qt5.patch"
+    sha256 "ca74adaf3ff51b865cb0760fedaa1c4e563a9ca91058509827b04046fd022d33"
+  end
+
   # QT Patches for owncloud
   # https://github.com/owncloud/client/tree/2.1.1/admin/qt/patches
 
   # Part of Qt v5.5.0 and later
-  patch do
-    url "https://raw.githubusercontent.com/owncloud/client/2.1.1/admin/qt/patches/0017-Win32-Re-init-system-proxy-if-internet-settings-chan.patch"
-    sha1 "df4d13decc54a2666c6cfd61fb0409728e7f4617"
-  end
+  #patch do
+  #  url "https://raw.githubusercontent.com/dennisdegreef/homebrew-qt5/master/qt5/0017-Win32-Re-init-system-proxy-if-internet-settings-chan.patch"
+  #  sha256 "53b9d380b9353002cfa2ddd7f504b846cdec4331c6a14176921ebbf1b4a817af"
+  #end
 
   # Part of Qt v5.5.1 and later
-  patch do
-    url "https://raw.githubusercontent.com/owncloud/client/2.1.1/admin/qt/patches/0007-X-Network-Fix-up-previous-corruption-patch.patch"
-    sha1 "53248a2b1fba01e1bb3c5bbc5540c53a3be07f81"
-  end
+  #patch do
+  #  url "https://raw.githubusercontent.com/dennisdegreef/homebrew-qt5/master/qt5/0007-X-Network-Fix-up-previous-corruption-patch.patch"
+  #  sha1 "53248a2b1fba01e1bb3c5bbc5540c53a3be07f81"
+  #end
 
-  patch do
-    url "https://raw.githubusercontent.com/owncloud/client/2.1.1/admin/qt/patches/0008-QNAM-Fix-reply-deadlocks-on-server-closing-connectio.patch"
-    sha1 "a3e6b50a82753ed40a232b5a13a7c5ecfa582b22"
-  end
+  #patch do
+  #  url "https://raw.githubusercontent.com/owncloud/client/2.1.1/admin/qt/patches/0008-QNAM-Fix-reply-deadlocks-on-server-closing-connectio.patch"
+  #  sha1 "a3e6b50a82753ed40a232b5a13a7c5ecfa582b22"
+  #end
 
-#  patch do
-#    url "https://github.com/owncloud/client/blob/60a51f808525d426126c54b2c6e1d5007b75c9fd/admin/qt/patches/0014-Fix-SNI-for-TlsV1_0OrLater-TlsV1_1OrLater-and-TlsV1_.patch"
-#    sha1 "18d82dc7308496973c153472fd151bf6d377f0b5"
-#  end
+  #patch do
+  #  url "https://github.com/owncloud/client/blob/60a51f808525d426126c54b2c6e1d5007b75c9fd/admin/qt/patches/0014-Fix-SNI-for-TlsV1_0OrLater-TlsV1_1OrLater-and-TlsV1_.patch"
+  #  sha1 "18d82dc7308496973c153472fd151bf6d377f0b5"
+  #end
 
 end

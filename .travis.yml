@@ -1,0 +1,14 @@
+matrix:
+  include:
+    - os: osx
+      osx_image: beta-xcode6.1
+
+before_install:
+  - env
+  - brew update
+  - brew upgrade cmake
+  - brew install openssl
+  - brew tap dennisdegreef/qt5
+
+script:
+  - brew install --verbose --version --debug dennisdegreef/qt5/qt5
