@@ -11,4 +11,6 @@ before_install:
   - brew tap dennisdegreef/qt5
 
 script:
-  - brew install --verbose --version dennisdegreef/qt5/qt5
+  - source print-to-break-silence.sh
+  - bust_log_silence_limit &
+  - brew install dennisdegreef/qt5/qt5
