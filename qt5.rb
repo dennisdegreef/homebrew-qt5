@@ -32,6 +32,8 @@ class Qt5 < Formula
   option "with-developer", "Build and link with developer options"
   option "with-oci", "Build with Oracle OCI plugin"
 
+  option "without-webengine", "Build without QtWebEngine module"
+
   deprecated_option "developer" => "with-developer"
   deprecated_option "qtdbus" => "with-d-bus"
 
@@ -61,6 +63,8 @@ class Qt5 < Formula
             "-nomake", "tests", "-release"]
 
     args << "-nomake" << "examples" if build.without? "examples"
+
+    args << "-skip" << "qtwebengine" if build.without? "webengine"
 
     args << "-plugin-sql-mysql" if build.with? "mysql"
 
