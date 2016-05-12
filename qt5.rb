@@ -17,7 +17,7 @@ class Qt5 < Formula
   sha256 "8c6d070613b721452f8cffdea6bddc82ce4f32f96703e3af02abb91a59f1ea25"
 
   bottle do
-    root_url "https://link0.net/homebrew/"
+    root_url "https://link0.net/homebrew"
     sha256 "787951f01c02c39065f65ad63d203dd003bbd1f54c20daf4dff898781331ceaf" => :mavericks
   end
 
