@@ -16,6 +16,11 @@ class Qt5 < Formula
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.4/5.4.2/single/qt-everywhere-opensource-src-5.4.2.tar.xz"
   sha256 "8c6d070613b721452f8cffdea6bddc82ce4f32f96703e3af02abb91a59f1ea25"
 
+  bottle do
+    root_url "https://link0.net/homebrew/"
+    sha256 "787951f01c02c39065f65ad63d203dd003bbd1f54c20daf4dff898781331ceaf" => :mavericks
+  end
+
 #  bottle do
 #    sha256 "1d3aee1664b44e912ddd307fc7f1eff25e835452ce44705acaa4162f79006ef7" => :yosemite
 #    sha256 "f32d4dde1b09d619e5046b9e5717ab48d7dc6b066b09bbde8d44f74b2ef040fb" => :mavericks
@@ -64,7 +69,8 @@ class Qt5 < Formula
 
     args << "-nomake" << "examples" if build.without? "examples"
 
-    args << "-skip" << "qtwebengine" if build.without? "webengine"
+    # never build with qtwebengine
+    args << "-skip" << "qtwebengine"
 
     args << "-plugin-sql-mysql" if build.with? "mysql"
 
@@ -132,33 +138,8 @@ class Qt5 < Formula
   end
 
   patch do
-    url "https://gist.githubusercontent.com/dennisdegreef/8ba899e9adea893973caac697d7b649b/raw/795cd38253445e0957203df271e20366594616d4/qt5.patch"
-    sha256 "ca74adaf3ff51b865cb0760fedaa1c4e563a9ca91058509827b04046fd022d33"
+    url "https://link0.net/qt5.patch"
+    sha256 "a0278afefc5e4e950cd2e7403e5c5bd229efadcd52a7f564940573d00bcb0ed2"
   end
-
-  # QT Patches for owncloud
-  # https://github.com/owncloud/client/tree/2.1.1/admin/qt/patches
-
-  # Part of Qt v5.5.0 and later
-  #patch do
-  #  url "https://raw.githubusercontent.com/dennisdegreef/homebrew-qt5/master/qt5/0017-Win32-Re-init-system-proxy-if-internet-settings-chan.patch"
-  #  sha256 "53b9d380b9353002cfa2ddd7f504b846cdec4331c6a14176921ebbf1b4a817af"
-  #end
-
-  # Part of Qt v5.5.1 and later
-  #patch do
-  #  url "https://raw.githubusercontent.com/dennisdegreef/homebrew-qt5/master/qt5/0007-X-Network-Fix-up-previous-corruption-patch.patch"
-  #  sha1 "53248a2b1fba01e1bb3c5bbc5540c53a3be07f81"
-  #end
-
-  #patch do
-  #  url "https://raw.githubusercontent.com/owncloud/client/2.1.1/admin/qt/patches/0008-QNAM-Fix-reply-deadlocks-on-server-closing-connectio.patch"
-  #  sha1 "a3e6b50a82753ed40a232b5a13a7c5ecfa582b22"
-  #end
-
-  #patch do
-  #  url "https://github.com/owncloud/client/blob/60a51f808525d426126c54b2c6e1d5007b75c9fd/admin/qt/patches/0014-Fix-SNI-for-TlsV1_0OrLater-TlsV1_1OrLater-and-TlsV1_.patch"
-  #  sha1 "18d82dc7308496973c153472fd151bf6d377f0b5"
-  #end
 
 end
