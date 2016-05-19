@@ -22,7 +22,7 @@ class Qtkeychain < Formula
     ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
 
     args = []
-    system "cmake", ".", "-DCMAKE_PREFIX_PATH=/usr/local/opt/qt5", *(args + std_cmake_args)
+    system "cmake", ".", "-DCMAKE_OSX_ARCHITECTURES=x86_64;i386", "-DCMAKE_PREFIX_PATH=/usr/local/opt/qt5", *(args + std_cmake_args)
     system "make install" # if this fails, try separate make/make install steps
   end
 
