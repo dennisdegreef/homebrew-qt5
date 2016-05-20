@@ -1,6 +1,7 @@
 matrix:
   include:
     - os: osx
+      env: HOMEBREW_BUILD_FROM_SOURCE=1
       osx_image: beta-xcode6.1
 
 before_install:
@@ -13,5 +14,8 @@ before_install:
 script:
   - source print-to-break-silence.sh
   - bust_log_silence_limit &
-  - brew install --universal --without-webengine dennisdegreef/qt5/qt5
-  - brew install dennisdegreef/qt5/qtkeychain
+  - brew install --verbose --debug --build-bottle --universal --without-webengine dennisdegreef/qt5/qt5
+  - brew bottle dennisdegreef/qt5/qt5
+  - brew install --verbose --debug --build-bottle --universal dennisdegreef/qt5/qtkeychain
+  - brew bottle dennisdegreef/qt5/qtkeychain
+
